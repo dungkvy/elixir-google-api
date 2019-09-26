@@ -25,6 +25,7 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
 
   @library_version Mix.Project.config() |> Keyword.get(:version, "")
 
+  
   @doc """
   Detects the language of text within a request.
 
@@ -62,41 +63,52 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.DetectLanguageResponse{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_detect_language(Tesla.Env.client(), String.t(), keyword(), keyword()) ::
-          {:ok, GoogleApi.Translate.V3beta1.Model.DetectLanguageResponse.t()}
-          | {:error, Tesla.Env.t()}
+  @spec translate_projects_detect_language(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.DetectLanguageResponse.t} | {:error, Tesla.Env.t()}
   def translate_projects_detect_language(connection, parent, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query,
-      :body => :body
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
+      :"body" => :"body",
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:post)
+      |> Request.method(:"post")
       |> Request.url("/v3beta1/{+parent}:detectLanguage", %{
-        "parent" => URI.encode(parent, &URI.char_unreserved?/1)
+        "parent" => URI.encode(parent, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
     connection
     |> Connection.execute(request)
-    |> Response.decode(
-      opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.DetectLanguageResponse{}]
-    )
+    |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.DetectLanguageResponse{}])
   end
-
+  
   @doc """
   Returns a list of supported languages for translation.
 
@@ -152,42 +164,46 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.SupportedLanguages{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_get_supported_languages(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) ::
-          {:ok, GoogleApi.Translate.V3beta1.Model.SupportedLanguages.t()}
-          | {:error, Tesla.Env.t()}
-  def translate_projects_get_supported_languages(
-        connection,
-        parent,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_get_supported_languages(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.SupportedLanguages.t} | {:error, Tesla.Env.t()}
+  def translate_projects_get_supported_languages(connection, parent, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query,
-      :displayLanguageCode => :query,
-      :model => :query
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
+      :"displayLanguageCode" => :"query",
+    
+      :"model" => :"query",
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:get)
+      |> Request.method(:"get")
       |> Request.url("/v3beta1/{+parent}/supportedLanguages", %{
-        "parent" => URI.encode(parent, &URI.char_unreserved?/1)
+        "parent" => URI.encode(parent, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
@@ -195,7 +211,7 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
     |> Connection.execute(request)
     |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.SupportedLanguages{}])
   end
-
+  
   @doc """
   Translates input text and returns translated text.
 
@@ -236,41 +252,52 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.TranslateTextResponse{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_translate_text(Tesla.Env.client(), String.t(), keyword(), keyword()) ::
-          {:ok, GoogleApi.Translate.V3beta1.Model.TranslateTextResponse.t()}
-          | {:error, Tesla.Env.t()}
+  @spec translate_projects_translate_text(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.TranslateTextResponse.t} | {:error, Tesla.Env.t()}
   def translate_projects_translate_text(connection, parent, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query,
-      :body => :body
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
+      :"body" => :"body",
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:post)
+      |> Request.method(:"post")
       |> Request.url("/v3beta1/{+parent}:translateText", %{
-        "parent" => URI.encode(parent, &URI.char_unreserved?/1)
+        "parent" => URI.encode(parent, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
     connection
     |> Connection.execute(request)
-    |> Response.decode(
-      opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.TranslateTextResponse{}]
-    )
+    |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.TranslateTextResponse{}])
   end
-
+  
   @doc """
   Translates a large volume of text in asynchronous batch mode.
   This function provides real-time output as the inputs are being processed.
@@ -312,39 +339,44 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.Operation{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_batch_translate_text(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) :: {:ok, GoogleApi.Translate.V3beta1.Model.Operation.t()} | {:error, Tesla.Env.t()}
-  def translate_projects_locations_batch_translate_text(
-        connection,
-        parent,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_locations_batch_translate_text(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.Operation.t} | {:error, Tesla.Env.t()}
+  def translate_projects_locations_batch_translate_text(connection, parent, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query,
-      :body => :body
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
+      :"body" => :"body",
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:post)
+      |> Request.method(:"post")
       |> Request.url("/v3beta1/{+parent}:batchTranslateText", %{
-        "parent" => URI.encode(parent, &URI.char_unreserved?/1)
+        "parent" => URI.encode(parent, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
@@ -352,7 +384,7 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
     |> Connection.execute(request)
     |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.Operation{}])
   end
-
+  
   @doc """
   Detects the language of text within a request.
 
@@ -390,51 +422,52 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.DetectLanguageResponse{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_detect_language(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) ::
-          {:ok, GoogleApi.Translate.V3beta1.Model.DetectLanguageResponse.t()}
-          | {:error, Tesla.Env.t()}
-  def translate_projects_locations_detect_language(
-        connection,
-        parent,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_locations_detect_language(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.DetectLanguageResponse.t} | {:error, Tesla.Env.t()}
+  def translate_projects_locations_detect_language(connection, parent, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query,
-      :body => :body
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
+      :"body" => :"body",
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:post)
+      |> Request.method(:"post")
       |> Request.url("/v3beta1/{+parent}:detectLanguage", %{
-        "parent" => URI.encode(parent, &URI.char_unreserved?/1)
+        "parent" => URI.encode(parent, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
     connection
     |> Connection.execute(request)
-    |> Response.decode(
-      opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.DetectLanguageResponse{}]
-    )
+    |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.DetectLanguageResponse{}])
   end
-
+  
   @doc """
   Gets information about a location.
 
@@ -461,29 +494,42 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.Location{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_get(Tesla.Env.client(), String.t(), keyword(), keyword()) ::
-          {:ok, GoogleApi.Translate.V3beta1.Model.Location.t()} | {:error, Tesla.Env.t()}
+  @spec translate_projects_locations_get(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.Location.t} | {:error, Tesla.Env.t()}
   def translate_projects_locations_get(connection, name, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:get)
+      |> Request.method(:"get")
       |> Request.url("/v3beta1/{+name}", %{
-        "name" => URI.encode(name, &URI.char_unreserved?/1)
+        "name" => URI.encode(name, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
@@ -491,7 +537,7 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
     |> Connection.execute(request)
     |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.Location{}])
   end
-
+  
   @doc """
   Returns a list of supported languages for translation.
 
@@ -547,42 +593,46 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.SupportedLanguages{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_get_supported_languages(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) ::
-          {:ok, GoogleApi.Translate.V3beta1.Model.SupportedLanguages.t()}
-          | {:error, Tesla.Env.t()}
-  def translate_projects_locations_get_supported_languages(
-        connection,
-        parent,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_locations_get_supported_languages(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.SupportedLanguages.t} | {:error, Tesla.Env.t()}
+  def translate_projects_locations_get_supported_languages(connection, parent, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query,
-      :displayLanguageCode => :query,
-      :model => :query
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
+      :"displayLanguageCode" => :"query",
+    
+      :"model" => :"query",
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:get)
+      |> Request.method(:"get")
       |> Request.url("/v3beta1/{+parent}/supportedLanguages", %{
-        "parent" => URI.encode(parent, &URI.char_unreserved?/1)
+        "parent" => URI.encode(parent, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
@@ -590,7 +640,7 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
     |> Connection.execute(request)
     |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.SupportedLanguages{}])
   end
-
+  
   @doc """
   Lists information about the supported locations for this service.
 
@@ -620,43 +670,56 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.ListLocationsResponse{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_list(Tesla.Env.client(), String.t(), keyword(), keyword()) ::
-          {:ok, GoogleApi.Translate.V3beta1.Model.ListLocationsResponse.t()}
-          | {:error, Tesla.Env.t()}
+  @spec translate_projects_locations_list(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.ListLocationsResponse.t} | {:error, Tesla.Env.t()}
   def translate_projects_locations_list(connection, name, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query,
-      :filter => :query,
-      :pageSize => :query,
-      :pageToken => :query
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
+      :"filter" => :"query",
+    
+      :"pageSize" => :"query",
+    
+      :"pageToken" => :"query",
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:get)
+      |> Request.method(:"get")
       |> Request.url("/v3beta1/{+name}/locations", %{
-        "name" => URI.encode(name, &URI.char_unreserved?/1)
+        "name" => URI.encode(name, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
     connection
     |> Connection.execute(request)
-    |> Response.decode(
-      opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.ListLocationsResponse{}]
-    )
+    |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.ListLocationsResponse{}])
   end
-
+  
   @doc """
   Translates input text and returns translated text.
 
@@ -697,51 +760,52 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.TranslateTextResponse{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_translate_text(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) ::
-          {:ok, GoogleApi.Translate.V3beta1.Model.TranslateTextResponse.t()}
-          | {:error, Tesla.Env.t()}
-  def translate_projects_locations_translate_text(
-        connection,
-        parent,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_locations_translate_text(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.TranslateTextResponse.t} | {:error, Tesla.Env.t()}
+  def translate_projects_locations_translate_text(connection, parent, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query,
-      :body => :body
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
+      :"body" => :"body",
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:post)
+      |> Request.method(:"post")
       |> Request.url("/v3beta1/{+parent}:translateText", %{
-        "parent" => URI.encode(parent, &URI.char_unreserved?/1)
+        "parent" => URI.encode(parent, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
     connection
     |> Connection.execute(request)
-    |> Response.decode(
-      opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.TranslateTextResponse{}]
-    )
+    |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.TranslateTextResponse{}])
   end
-
+  
   @doc """
   Creates a glossary and returns the long-running operation. Returns
   NOT_FOUND, if the project doesn't exist.
@@ -770,39 +834,44 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.Operation{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_glossaries_create(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) :: {:ok, GoogleApi.Translate.V3beta1.Model.Operation.t()} | {:error, Tesla.Env.t()}
-  def translate_projects_locations_glossaries_create(
-        connection,
-        parent,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_locations_glossaries_create(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.Operation.t} | {:error, Tesla.Env.t()}
+  def translate_projects_locations_glossaries_create(connection, parent, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query,
-      :body => :body
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
+      :"body" => :"body",
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:post)
+      |> Request.method(:"post")
       |> Request.url("/v3beta1/{+parent}/glossaries", %{
-        "parent" => URI.encode(parent, &URI.char_unreserved?/1)
+        "parent" => URI.encode(parent, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
@@ -810,7 +879,7 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
     |> Connection.execute(request)
     |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.Operation{}])
   end
-
+  
   @doc """
   Deletes a glossary, or cancels glossary construction
   if the glossary isn't created yet.
@@ -839,38 +908,42 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.Operation{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_glossaries_delete(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) :: {:ok, GoogleApi.Translate.V3beta1.Model.Operation.t()} | {:error, Tesla.Env.t()}
-  def translate_projects_locations_glossaries_delete(
-        connection,
-        name,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_locations_glossaries_delete(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.Operation.t} | {:error, Tesla.Env.t()}
+  def translate_projects_locations_glossaries_delete(connection, name, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:delete)
+      |> Request.method(:"delete")
       |> Request.url("/v3beta1/{+name}", %{
-        "name" => URI.encode(name, &URI.char_unreserved?/1)
+        "name" => URI.encode(name, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
@@ -878,7 +951,7 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
     |> Connection.execute(request)
     |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.Operation{}])
   end
-
+  
   @doc """
   Gets a glossary. Returns NOT_FOUND, if the glossary doesn't
   exist.
@@ -906,38 +979,42 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.Glossary{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_glossaries_get(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) :: {:ok, GoogleApi.Translate.V3beta1.Model.Glossary.t()} | {:error, Tesla.Env.t()}
-  def translate_projects_locations_glossaries_get(
-        connection,
-        name,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_locations_glossaries_get(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.Glossary.t} | {:error, Tesla.Env.t()}
+  def translate_projects_locations_glossaries_get(connection, name, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:get)
+      |> Request.method(:"get")
       |> Request.url("/v3beta1/{+name}", %{
-        "name" => URI.encode(name, &URI.char_unreserved?/1)
+        "name" => URI.encode(name, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
@@ -945,7 +1022,7 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
     |> Connection.execute(request)
     |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.Glossary{}])
   end
-
+  
   @doc """
   Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
   exist.
@@ -982,53 +1059,56 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.ListGlossariesResponse{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_glossaries_list(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) ::
-          {:ok, GoogleApi.Translate.V3beta1.Model.ListGlossariesResponse.t()}
-          | {:error, Tesla.Env.t()}
-  def translate_projects_locations_glossaries_list(
-        connection,
-        parent,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_locations_glossaries_list(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.ListGlossariesResponse.t} | {:error, Tesla.Env.t()}
+  def translate_projects_locations_glossaries_list(connection, parent, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query,
-      :filter => :query,
-      :pageSize => :query,
-      :pageToken => :query
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
+      :"filter" => :"query",
+    
+      :"pageSize" => :"query",
+    
+      :"pageToken" => :"query",
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:get)
+      |> Request.method(:"get")
       |> Request.url("/v3beta1/{+parent}/glossaries", %{
-        "parent" => URI.encode(parent, &URI.char_unreserved?/1)
+        "parent" => URI.encode(parent, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
     connection
     |> Connection.execute(request)
-    |> Response.decode(
-      opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.ListGlossariesResponse{}]
-    )
+    |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.ListGlossariesResponse{}])
   end
-
+  
   @doc """
   Starts asynchronous cancellation on a long-running operation.  The server
   makes a best effort to cancel the operation, but success is not
@@ -1065,39 +1145,44 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.Empty{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_operations_cancel(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) :: {:ok, GoogleApi.Translate.V3beta1.Model.Empty.t()} | {:error, Tesla.Env.t()}
-  def translate_projects_locations_operations_cancel(
-        connection,
-        name,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_locations_operations_cancel(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.Empty.t} | {:error, Tesla.Env.t()}
+  def translate_projects_locations_operations_cancel(connection, name, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query,
-      :body => :body
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
+      :"body" => :"body",
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:post)
+      |> Request.method(:"post")
       |> Request.url("/v3beta1/{+name}:cancel", %{
-        "name" => URI.encode(name, &URI.char_unreserved?/1)
+        "name" => URI.encode(name, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
@@ -1105,7 +1190,7 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
     |> Connection.execute(request)
     |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.Empty{}])
   end
-
+  
   @doc """
   Deletes a long-running operation. This method indicates that the client is
   no longer interested in the operation result. It does not cancel the
@@ -1135,38 +1220,42 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.Empty{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_operations_delete(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) :: {:ok, GoogleApi.Translate.V3beta1.Model.Empty.t()} | {:error, Tesla.Env.t()}
-  def translate_projects_locations_operations_delete(
-        connection,
-        name,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_locations_operations_delete(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.Empty.t} | {:error, Tesla.Env.t()}
+  def translate_projects_locations_operations_delete(connection, name, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:delete)
+      |> Request.method(:"delete")
       |> Request.url("/v3beta1/{+name}", %{
-        "name" => URI.encode(name, &URI.char_unreserved?/1)
+        "name" => URI.encode(name, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
@@ -1174,7 +1263,7 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
     |> Connection.execute(request)
     |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.Empty{}])
   end
-
+  
   @doc """
   Gets the latest state of a long-running operation.  Clients can use this
   method to poll the operation result at intervals as recommended by the API
@@ -1203,38 +1292,42 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.Operation{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_operations_get(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) :: {:ok, GoogleApi.Translate.V3beta1.Model.Operation.t()} | {:error, Tesla.Env.t()}
-  def translate_projects_locations_operations_get(
-        connection,
-        name,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_locations_operations_get(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.Operation.t} | {:error, Tesla.Env.t()}
+  def translate_projects_locations_operations_get(connection, name, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:get)
+      |> Request.method(:"get")
       |> Request.url("/v3beta1/{+name}", %{
-        "name" => URI.encode(name, &URI.char_unreserved?/1)
+        "name" => URI.encode(name, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
@@ -1242,7 +1335,7 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
     |> Connection.execute(request)
     |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.Operation{}])
   end
-
+  
   @doc """
   Lists operations that match the specified filter in the request. If the
   server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -1281,53 +1374,56 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.ListOperationsResponse{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_operations_list(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) ::
-          {:ok, GoogleApi.Translate.V3beta1.Model.ListOperationsResponse.t()}
-          | {:error, Tesla.Env.t()}
-  def translate_projects_locations_operations_list(
-        connection,
-        name,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_locations_operations_list(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.ListOperationsResponse.t} | {:error, Tesla.Env.t()}
+  def translate_projects_locations_operations_list(connection, name, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query,
-      :filter => :query,
-      :pageSize => :query,
-      :pageToken => :query
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
+      :"filter" => :"query",
+    
+      :"pageSize" => :"query",
+    
+      :"pageToken" => :"query",
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:get)
+      |> Request.method(:"get")
       |> Request.url("/v3beta1/{+name}/operations", %{
-        "name" => URI.encode(name, &URI.char_unreserved?/1)
+        "name" => URI.encode(name, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
     connection
     |> Connection.execute(request)
-    |> Response.decode(
-      opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.ListOperationsResponse{}]
-    )
+    |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.ListOperationsResponse{}])
   end
-
+  
   @doc """
   Waits for the specified long-running operation until it is done or reaches
   at most a specified timeout, returning the latest state.  If the operation
@@ -1363,39 +1459,44 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
   *   `{:ok, %GoogleApi.Translate.V3beta1.Model.Operation{}}` on success
   *   `{:error, info}` on failure
   """
-  @spec translate_projects_locations_operations_wait(
-          Tesla.Env.client(),
-          String.t(),
-          keyword(),
-          keyword()
-        ) :: {:ok, GoogleApi.Translate.V3beta1.Model.Operation.t()} | {:error, Tesla.Env.t()}
-  def translate_projects_locations_operations_wait(
-        connection,
-        name,
-        optional_params \\ [],
-        opts \\ []
-      ) do
+  @spec translate_projects_locations_operations_wait(Tesla.Env.client(), String.t, keyword(), keyword()) :: {:ok, GoogleApi.Translate.V3beta1.Model.Operation.t} | {:error, Tesla.Env.t()}
+  def translate_projects_locations_operations_wait(connection, name, optional_params \\ [], opts \\ []) do
     optional_params_config = %{
-      :"$.xgafv" => :query,
-      :access_token => :query,
-      :alt => :query,
-      :callback => :query,
-      :fields => :query,
-      :key => :query,
-      :oauth_token => :query,
-      :prettyPrint => :query,
-      :quotaUser => :query,
-      :uploadType => :query,
-      :upload_protocol => :query,
-      :body => :body
+    
+      :"$.xgafv" => :"query",
+    
+      :"access_token" => :"query",
+    
+      :"alt" => :"query",
+    
+      :"callback" => :"query",
+    
+      :"fields" => :"query",
+    
+      :"key" => :"query",
+    
+      :"oauth_token" => :"query",
+    
+      :"prettyPrint" => :"query",
+    
+      :"quotaUser" => :"query",
+    
+      :"uploadType" => :"query",
+    
+      :"upload_protocol" => :"query",
+    
+    
+      :"body" => :"body",
+    
     }
 
     request =
       Request.new()
-      |> Request.method(:post)
+      |> Request.method(:"post")
       |> Request.url("/v3beta1/{+name}:wait", %{
-        "name" => URI.encode(name, &URI.char_unreserved?/1)
+        "name" => URI.encode(name, &URI.char_unreserved?/1),
       })
+      
       |> Request.add_optional_params(optional_params_config, optional_params)
       |> Request.library_version(@library_version)
 
@@ -1403,4 +1504,5 @@ defmodule GoogleApi.Translate.V3beta1.Api.Projects do
     |> Connection.execute(request)
     |> Response.decode(opts ++ [struct: %GoogleApi.Translate.V3beta1.Model.Operation{}])
   end
+  
 end

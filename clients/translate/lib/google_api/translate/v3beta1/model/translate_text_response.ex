@@ -17,10 +17,10 @@
 
 defmodule GoogleApi.Translate.V3beta1.Model.TranslateTextResponse do
   @moduledoc """
-
+  
 
   ## Attributes
-
+  
   *   `glossaryTranslations` (*type:* `list(GoogleApi.Translate.V3beta1.Model.Translation.t)`, *default:* `nil`) - Text translation responses if a glossary is provided in the request.
       This can be the same as
       `translations` if no terms apply.
@@ -34,12 +34,15 @@ defmodule GoogleApi.Translate.V3beta1.Model.TranslateTextResponse do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :glossaryTranslations => list(GoogleApi.Translate.V3beta1.Model.Translation.t()),
-          :translations => list(GoogleApi.Translate.V3beta1.Model.Translation.t())
-        }
-
-  field(:glossaryTranslations, as: GoogleApi.Translate.V3beta1.Model.Translation, type: :list)
-  field(:translations, as: GoogleApi.Translate.V3beta1.Model.Translation, type: :list)
+    
+      :"glossaryTranslations" => list(GoogleApi.Translate.V3beta1.Model.Translation.t),
+    
+      :"translations" => list(GoogleApi.Translate.V3beta1.Model.Translation.t),
+    
+  }
+  
+  field(:"glossaryTranslations", as: GoogleApi.Translate.V3beta1.Model.Translation, type: :list)
+  field(:"translations", as: GoogleApi.Translate.V3beta1.Model.Translation, type: :list)
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.TranslateTextResponse do

@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.GlossaryInputConfig do
   Input configuration for glossaries.
 
   ## Attributes
-
+  
   *   `gcsSource` (*type:* `GoogleApi.Translate.V3beta1.Model.GcsSource.t`, *default:* `nil`) - Required. Google Cloud Storage location of glossary data.
       File format is determined based on the filename extension. API returns
       [google.rpc.Code.INVALID_ARGUMENT] for unsupported URI-s and file
@@ -48,10 +48,12 @@ defmodule GoogleApi.Translate.V3beta1.Model.GlossaryInputConfig do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :gcsSource => GoogleApi.Translate.V3beta1.Model.GcsSource.t()
-        }
-
-  field(:gcsSource, as: GoogleApi.Translate.V3beta1.Model.GcsSource)
+    
+      :"gcsSource" => GoogleApi.Translate.V3beta1.Model.GcsSource.t,
+    
+  }
+  
+  field(:"gcsSource", as: GoogleApi.Translate.V3beta1.Model.GcsSource)
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.GlossaryInputConfig do

@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.DetectLanguageRequest do
   The request message for language detection.
 
   ## Attributes
-
+  
   *   `content` (*type:* `String.t`, *default:* `nil`) - The content of the input stored as a string.
   *   `labels` (*type:* `map()`, *default:* `nil`) - Optional. The labels with user-defined metadata for the request.
 
@@ -46,16 +46,21 @@ defmodule GoogleApi.Translate.V3beta1.Model.DetectLanguageRequest do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :content => String.t(),
-          :labels => map(),
-          :mimeType => String.t(),
-          :model => String.t()
-        }
-
-  field(:content)
-  field(:labels, type: :map)
-  field(:mimeType)
-  field(:model)
+    
+      :"content" => String.t,
+    
+      :"labels" => map(),
+    
+      :"mimeType" => String.t,
+    
+      :"model" => String.t,
+    
+  }
+  
+  field(:"content")
+  field(:"labels", type: :map)
+  field(:"mimeType")
+  field(:"model")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.DetectLanguageRequest do

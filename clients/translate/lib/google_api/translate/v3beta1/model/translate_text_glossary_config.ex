@@ -21,7 +21,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig do
   and defines options for applying that glossary.
 
   ## Attributes
-
+  
   *   `glossary` (*type:* `String.t`, *default:* `nil`) - Required. Specifies the glossary used for this translation. Use
       this format: projects/*/locations/*/glossaries/*
   *   `ignoreCase` (*type:* `boolean()`, *default:* `nil`) - Optional. Indicates match is case-insensitive.
@@ -31,12 +31,15 @@ defmodule GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :glossary => String.t(),
-          :ignoreCase => boolean()
-        }
-
-  field(:glossary)
-  field(:ignoreCase)
+    
+      :"glossary" => String.t,
+    
+      :"ignoreCase" => boolean(),
+    
+  }
+  
+  field(:"glossary")
+  field(:"ignoreCase")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig do

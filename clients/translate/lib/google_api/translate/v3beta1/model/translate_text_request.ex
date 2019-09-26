@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.TranslateTextRequest do
   The request message for synchronous translation.
 
   ## Attributes
-
+  
   *   `contents` (*type:* `list(String.t)`, *default:* `nil`) - Required. The content of the input in string format.
       We recommend the total content be less than 30k codepoints.
       Use BatchTranslateText for larger text.
@@ -66,22 +66,30 @@ defmodule GoogleApi.Translate.V3beta1.Model.TranslateTextRequest do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :contents => list(String.t()),
-          :glossaryConfig => GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig.t(),
-          :labels => map(),
-          :mimeType => String.t(),
-          :model => String.t(),
-          :sourceLanguageCode => String.t(),
-          :targetLanguageCode => String.t()
-        }
-
-  field(:contents, type: :list)
-  field(:glossaryConfig, as: GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig)
-  field(:labels, type: :map)
-  field(:mimeType)
-  field(:model)
-  field(:sourceLanguageCode)
-  field(:targetLanguageCode)
+    
+      :"contents" => list(String.t),
+    
+      :"glossaryConfig" => GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig.t,
+    
+      :"labels" => map(),
+    
+      :"mimeType" => String.t,
+    
+      :"model" => String.t,
+    
+      :"sourceLanguageCode" => String.t,
+    
+      :"targetLanguageCode" => String.t,
+    
+  }
+  
+  field(:"contents", type: :list)
+  field(:"glossaryConfig", as: GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig)
+  field(:"labels", type: :map)
+  field(:"mimeType")
+  field(:"model")
+  field(:"sourceLanguageCode")
+  field(:"targetLanguageCode")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.TranslateTextRequest do

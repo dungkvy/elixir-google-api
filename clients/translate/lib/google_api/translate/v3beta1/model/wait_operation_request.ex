@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.WaitOperationRequest do
   The request message for Operations.WaitOperation.
 
   ## Attributes
-
+  
   *   `timeout` (*type:* `String.t`, *default:* `nil`) - The maximum duration to wait before timing out. If left blank, the wait
       will be at most the time permitted by the underlying HTTP/RPC protocol.
       If RPC context deadline is also specified, the shorter one will be used.
@@ -29,10 +29,12 @@ defmodule GoogleApi.Translate.V3beta1.Model.WaitOperationRequest do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :timeout => String.t()
-        }
-
-  field(:timeout)
+    
+      :"timeout" => String.t,
+    
+  }
+  
+  field(:"timeout")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.WaitOperationRequest do

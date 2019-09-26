@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.GcsDestination do
   The Google Cloud Storage location for the output content.
 
   ## Attributes
-
+  
   *   `outputUriPrefix` (*type:* `String.t`, *default:* `nil`) - Required. There must be no files under 'output_uri_prefix'.
       'output_uri_prefix' must end with "/" and start with "gs://", otherwise an
       INVALID_ARGUMENT (400) error is returned.
@@ -29,10 +29,12 @@ defmodule GoogleApi.Translate.V3beta1.Model.GcsDestination do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :outputUriPrefix => String.t()
-        }
-
-  field(:outputUriPrefix)
+    
+      :"outputUriPrefix" => String.t,
+    
+  }
+  
+  field(:"outputUriPrefix")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.GcsDestination do

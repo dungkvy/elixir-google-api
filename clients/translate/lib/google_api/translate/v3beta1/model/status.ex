@@ -26,7 +26,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.Status do
   [API Design Guide](https://cloud.google.com/apis/design/errors).
 
   ## Attributes
-
+  
   *   `code` (*type:* `integer()`, *default:* `nil`) - The status code, which should be an enum value of google.rpc.Code.
   *   `details` (*type:* `list(map())`, *default:* `nil`) - A list of messages that carry the error details.  There is a common set of
       message types for APIs to use.
@@ -38,14 +38,18 @@ defmodule GoogleApi.Translate.V3beta1.Model.Status do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :code => integer(),
-          :details => list(map()),
-          :message => String.t()
-        }
-
-  field(:code)
-  field(:details, type: :list)
-  field(:message)
+    
+      :"code" => integer(),
+    
+      :"details" => list(map()),
+    
+      :"message" => String.t,
+    
+  }
+  
+  field(:"code")
+  field(:"details", type: :list)
+  field(:"message")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.Status do

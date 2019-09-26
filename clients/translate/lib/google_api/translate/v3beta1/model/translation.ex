@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.Translation do
   A single translation response.
 
   ## Attributes
-
+  
   *   `detectedLanguageCode` (*type:* `String.t`, *default:* `nil`) - The BCP-47 language code of source text in the initial request, detected
       automatically, if no source language was passed within the initial
       request. If the source language was passed, auto-detection of the language
@@ -34,16 +34,21 @@ defmodule GoogleApi.Translate.V3beta1.Model.Translation do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :detectedLanguageCode => String.t(),
-          :glossaryConfig => GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig.t(),
-          :model => String.t(),
-          :translatedText => String.t()
-        }
-
-  field(:detectedLanguageCode)
-  field(:glossaryConfig, as: GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig)
-  field(:model)
-  field(:translatedText)
+    
+      :"detectedLanguageCode" => String.t,
+    
+      :"glossaryConfig" => GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig.t,
+    
+      :"model" => String.t,
+    
+      :"translatedText" => String.t,
+    
+  }
+  
+  field(:"detectedLanguageCode")
+  field(:"glossaryConfig", as: GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig)
+  field(:"model")
+  field(:"translatedText")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.Translation do

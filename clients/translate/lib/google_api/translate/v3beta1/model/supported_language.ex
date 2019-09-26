@@ -21,7 +21,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.SupportedLanguage do
   to one supported language.
 
   ## Attributes
-
+  
   *   `displayName` (*type:* `String.t`, *default:* `nil`) - Human readable name of the language localized in the display language
       specified in the request.
   *   `languageCode` (*type:* `String.t`, *default:* `nil`) - Supported language code, generally consisting of its ISO 639-1
@@ -35,16 +35,21 @@ defmodule GoogleApi.Translate.V3beta1.Model.SupportedLanguage do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :displayName => String.t(),
-          :languageCode => String.t(),
-          :supportSource => boolean(),
-          :supportTarget => boolean()
-        }
-
-  field(:displayName)
-  field(:languageCode)
-  field(:supportSource)
-  field(:supportTarget)
+    
+      :"displayName" => String.t,
+    
+      :"languageCode" => String.t,
+    
+      :"supportSource" => boolean(),
+    
+      :"supportTarget" => boolean(),
+    
+  }
+  
+  field(:"displayName")
+  field(:"languageCode")
+  field(:"supportSource")
+  field(:"supportTarget")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.SupportedLanguage do

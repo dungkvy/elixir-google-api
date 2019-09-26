@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.BatchTranslateTextRequest do
   The batch translation request.
 
   ## Attributes
-
+  
   *   `glossaries` (*type:* `%{optional(String.t) => GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig.t}`, *default:* `nil`) - Optional. Glossaries to be applied for translation.
       It's keyed by target language code.
   *   `inputConfigs` (*type:* `list(GoogleApi.Translate.V3beta1.Model.InputConfig.t)`, *default:* `nil`) - Required. Input configurations.
@@ -61,26 +61,30 @@ defmodule GoogleApi.Translate.V3beta1.Model.BatchTranslateTextRequest do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :glossaries => %{
-            optional(String.t()) =>
-              GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig.t()
-          },
-          :inputConfigs => list(GoogleApi.Translate.V3beta1.Model.InputConfig.t()),
-          :labels => map(),
-          :models => map(),
-          :outputConfig => GoogleApi.Translate.V3beta1.Model.OutputConfig.t(),
-          :sourceLanguageCode => String.t(),
-          :targetLanguageCodes => list(String.t())
-        }
-
-  field(:glossaries, as: GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig, type: :map)
-
-  field(:inputConfigs, as: GoogleApi.Translate.V3beta1.Model.InputConfig, type: :list)
-  field(:labels, type: :map)
-  field(:models, type: :map)
-  field(:outputConfig, as: GoogleApi.Translate.V3beta1.Model.OutputConfig)
-  field(:sourceLanguageCode)
-  field(:targetLanguageCodes, type: :list)
+    
+      :"glossaries" => %{optional(String.t) => GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig.t},
+    
+      :"inputConfigs" => list(GoogleApi.Translate.V3beta1.Model.InputConfig.t),
+    
+      :"labels" => map(),
+    
+      :"models" => map(),
+    
+      :"outputConfig" => GoogleApi.Translate.V3beta1.Model.OutputConfig.t,
+    
+      :"sourceLanguageCode" => String.t,
+    
+      :"targetLanguageCodes" => list(String.t),
+    
+  }
+  
+  field(:"glossaries", as: GoogleApi.Translate.V3beta1.Model.TranslateTextGlossaryConfig, type: :map)
+  field(:"inputConfigs", as: GoogleApi.Translate.V3beta1.Model.InputConfig, type: :list)
+  field(:"labels", type: :map)
+  field(:"models", type: :map)
+  field(:"outputConfig", as: GoogleApi.Translate.V3beta1.Model.OutputConfig)
+  field(:"sourceLanguageCode")
+  field(:"targetLanguageCodes", type: :list)
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.BatchTranslateTextRequest do

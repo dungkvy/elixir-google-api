@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.Location do
   A resource that represents Google Cloud Platform location.
 
   ## Attributes
-
+  
   *   `displayName` (*type:* `String.t`, *default:* `nil`) - The friendly name for this location, typically a nearby city name.
       For example, "Tokyo".
   *   `labels` (*type:* `map()`, *default:* `nil`) - Cross-service attributes for the location. For example
@@ -36,18 +36,24 @@ defmodule GoogleApi.Translate.V3beta1.Model.Location do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :displayName => String.t(),
-          :labels => map(),
-          :locationId => String.t(),
-          :metadata => map(),
-          :name => String.t()
-        }
-
-  field(:displayName)
-  field(:labels, type: :map)
-  field(:locationId)
-  field(:metadata, type: :map)
-  field(:name)
+    
+      :"displayName" => String.t,
+    
+      :"labels" => map(),
+    
+      :"locationId" => String.t,
+    
+      :"metadata" => map(),
+    
+      :"name" => String.t,
+    
+  }
+  
+  field(:"displayName")
+  field(:"labels", type: :map)
+  field(:"locationId")
+  field(:"metadata", type: :map)
+  field(:"name")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.Location do

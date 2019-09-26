@@ -20,17 +20,19 @@ defmodule GoogleApi.Translate.V3beta1.Model.GcsSource do
   The Google Cloud Storage location for the input content.
 
   ## Attributes
-
+  
   *   `inputUri` (*type:* `String.t`, *default:* `nil`) - Required. Source data URI. For example, `gs://my_bucket/my_object`.
   """
 
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :inputUri => String.t()
-        }
-
-  field(:inputUri)
+    
+      :"inputUri" => String.t,
+    
+  }
+  
+  field(:"inputUri")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.GcsSource do

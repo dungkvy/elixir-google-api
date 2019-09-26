@@ -28,12 +28,15 @@ defmodule GoogleApi.Translate.V3beta1.Model.Empty do
   The JSON representation for `Empty` is empty JSON object `{}`.
 
   ## Attributes
-
+  
   """
 
   use GoogleApi.Gax.ModelBase
 
-  @type t :: %__MODULE__{}
+  @type t :: %__MODULE__{
+    
+  }
+  
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.Empty do

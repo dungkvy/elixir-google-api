@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.ListOperationsResponse do
   The response message for Operations.ListOperations.
 
   ## Attributes
-
+  
   *   `nextPageToken` (*type:* `String.t`, *default:* `nil`) - The standard List next-page token.
   *   `operations` (*type:* `list(GoogleApi.Translate.V3beta1.Model.Operation.t)`, *default:* `nil`) - A list of operations that matches the specified filter in the request.
   """
@@ -28,12 +28,15 @@ defmodule GoogleApi.Translate.V3beta1.Model.ListOperationsResponse do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :nextPageToken => String.t(),
-          :operations => list(GoogleApi.Translate.V3beta1.Model.Operation.t())
-        }
-
-  field(:nextPageToken)
-  field(:operations, as: GoogleApi.Translate.V3beta1.Model.Operation, type: :list)
+    
+      :"nextPageToken" => String.t,
+    
+      :"operations" => list(GoogleApi.Translate.V3beta1.Model.Operation.t),
+    
+  }
+  
+  field(:"nextPageToken")
+  field(:"operations", as: GoogleApi.Translate.V3beta1.Model.Operation, type: :list)
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.ListOperationsResponse do

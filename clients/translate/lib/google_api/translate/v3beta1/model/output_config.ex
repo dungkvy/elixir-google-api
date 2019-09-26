@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.OutputConfig do
   Output configuration for BatchTranslateText request.
 
   ## Attributes
-
+  
   *   `gcsDestination` (*type:* `GoogleApi.Translate.V3beta1.Model.GcsDestination.t`, *default:* `nil`) - Google Cloud Storage destination for output content.
       For every single input file (for example, gs://a/b/c.[extension]), we
       generate at most 2 * n output files. (n is the # of target_language_codes
@@ -92,10 +92,12 @@ defmodule GoogleApi.Translate.V3beta1.Model.OutputConfig do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :gcsDestination => GoogleApi.Translate.V3beta1.Model.GcsDestination.t()
-        }
-
-  field(:gcsDestination, as: GoogleApi.Translate.V3beta1.Model.GcsDestination)
+    
+      :"gcsDestination" => GoogleApi.Translate.V3beta1.Model.GcsDestination.t,
+    
+  }
+  
+  field(:"gcsDestination", as: GoogleApi.Translate.V3beta1.Model.GcsDestination)
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.OutputConfig do

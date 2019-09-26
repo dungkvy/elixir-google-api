@@ -20,12 +20,15 @@ defmodule GoogleApi.Translate.V3beta1.Model.CancelOperationRequest do
   The request message for Operations.CancelOperation.
 
   ## Attributes
-
+  
   """
 
   use GoogleApi.Gax.ModelBase
 
-  @type t :: %__MODULE__{}
+  @type t :: %__MODULE__{
+    
+  }
+  
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.CancelOperationRequest do

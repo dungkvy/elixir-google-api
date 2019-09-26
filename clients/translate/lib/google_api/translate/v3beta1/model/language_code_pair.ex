@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.LanguageCodePair do
   Used with unidirectional glossaries.
 
   ## Attributes
-
+  
   *   `sourceLanguageCode` (*type:* `String.t`, *default:* `nil`) - Required. The BCP-47 language code of the input text, for example,
       "en-US". Expected to be an exact match for GlossaryTerm.language_code.
   *   `targetLanguageCode` (*type:* `String.t`, *default:* `nil`) - Required. The BCP-47 language code for translation output, for example,
@@ -30,12 +30,15 @@ defmodule GoogleApi.Translate.V3beta1.Model.LanguageCodePair do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :sourceLanguageCode => String.t(),
-          :targetLanguageCode => String.t()
-        }
-
-  field(:sourceLanguageCode)
-  field(:targetLanguageCode)
+    
+      :"sourceLanguageCode" => String.t,
+    
+      :"targetLanguageCode" => String.t,
+    
+  }
+  
+  field(:"sourceLanguageCode")
+  field(:"targetLanguageCode")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.LanguageCodePair do

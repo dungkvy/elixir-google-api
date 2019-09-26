@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.Glossary do
   Represents a glossary built from user provided data.
 
   ## Attributes
-
+  
   *   `endTime` (*type:* `DateTime.t`, *default:* `nil`) - Output only. When the glossary creation was finished.
   *   `entryCount` (*type:* `integer()`, *default:* `nil`) - Output only. The number of entries defined in the glossary.
   *   `inputConfig` (*type:* `GoogleApi.Translate.V3beta1.Model.GlossaryInputConfig.t`, *default:* `nil`) - Required. Provides examples to build the glossary from.
@@ -35,22 +35,30 @@ defmodule GoogleApi.Translate.V3beta1.Model.Glossary do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :endTime => DateTime.t(),
-          :entryCount => integer(),
-          :inputConfig => GoogleApi.Translate.V3beta1.Model.GlossaryInputConfig.t(),
-          :languageCodesSet => GoogleApi.Translate.V3beta1.Model.LanguageCodesSet.t(),
-          :languagePair => GoogleApi.Translate.V3beta1.Model.LanguageCodePair.t(),
-          :name => String.t(),
-          :submitTime => DateTime.t()
-        }
-
-  field(:endTime, as: DateTime)
-  field(:entryCount)
-  field(:inputConfig, as: GoogleApi.Translate.V3beta1.Model.GlossaryInputConfig)
-  field(:languageCodesSet, as: GoogleApi.Translate.V3beta1.Model.LanguageCodesSet)
-  field(:languagePair, as: GoogleApi.Translate.V3beta1.Model.LanguageCodePair)
-  field(:name)
-  field(:submitTime, as: DateTime)
+    
+      :"endTime" => DateTime.t,
+    
+      :"entryCount" => integer(),
+    
+      :"inputConfig" => GoogleApi.Translate.V3beta1.Model.GlossaryInputConfig.t,
+    
+      :"languageCodesSet" => GoogleApi.Translate.V3beta1.Model.LanguageCodesSet.t,
+    
+      :"languagePair" => GoogleApi.Translate.V3beta1.Model.LanguageCodePair.t,
+    
+      :"name" => String.t,
+    
+      :"submitTime" => DateTime.t,
+    
+  }
+  
+  field(:"endTime", as: DateTime)
+  field(:"entryCount")
+  field(:"inputConfig", as: GoogleApi.Translate.V3beta1.Model.GlossaryInputConfig)
+  field(:"languageCodesSet", as: GoogleApi.Translate.V3beta1.Model.LanguageCodesSet)
+  field(:"languagePair", as: GoogleApi.Translate.V3beta1.Model.LanguageCodePair)
+  field(:"name")
+  field(:"submitTime", as: DateTime)
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.Glossary do

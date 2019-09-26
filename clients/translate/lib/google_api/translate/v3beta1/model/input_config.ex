@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.InputConfig do
   Input configuration for BatchTranslateText request.
 
   ## Attributes
-
+  
   *   `gcsSource` (*type:* `GoogleApi.Translate.V3beta1.Model.GcsSource.t`, *default:* `nil`) - Required. Google Cloud Storage location for the source input.
       This can be a single file (for example,
       `gs://translation-test/input.tsv`) or a wildcard (for example,
@@ -48,12 +48,15 @@ defmodule GoogleApi.Translate.V3beta1.Model.InputConfig do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :gcsSource => GoogleApi.Translate.V3beta1.Model.GcsSource.t(),
-          :mimeType => String.t()
-        }
-
-  field(:gcsSource, as: GoogleApi.Translate.V3beta1.Model.GcsSource)
-  field(:mimeType)
+    
+      :"gcsSource" => GoogleApi.Translate.V3beta1.Model.GcsSource.t,
+    
+      :"mimeType" => String.t,
+    
+  }
+  
+  field(:"gcsSource", as: GoogleApi.Translate.V3beta1.Model.GcsSource)
+  field(:"mimeType")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.InputConfig do

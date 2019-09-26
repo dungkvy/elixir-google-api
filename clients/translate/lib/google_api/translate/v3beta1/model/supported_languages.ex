@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.SupportedLanguages do
   The response message for discovering supported languages.
 
   ## Attributes
-
+  
   *   `languages` (*type:* `list(GoogleApi.Translate.V3beta1.Model.SupportedLanguage.t)`, *default:* `nil`) - A list of supported language responses. This list contains an entry
       for each language the Translation API supports.
   """
@@ -28,10 +28,12 @@ defmodule GoogleApi.Translate.V3beta1.Model.SupportedLanguages do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :languages => list(GoogleApi.Translate.V3beta1.Model.SupportedLanguage.t())
-        }
-
-  field(:languages, as: GoogleApi.Translate.V3beta1.Model.SupportedLanguage, type: :list)
+    
+      :"languages" => list(GoogleApi.Translate.V3beta1.Model.SupportedLanguage.t),
+    
+  }
+  
+  field(:"languages", as: GoogleApi.Translate.V3beta1.Model.SupportedLanguage, type: :list)
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.SupportedLanguages do

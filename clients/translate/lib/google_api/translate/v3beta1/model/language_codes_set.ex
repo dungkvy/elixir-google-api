@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.LanguageCodesSet do
   Used with equivalent term set glossaries.
 
   ## Attributes
-
+  
   *   `languageCodes` (*type:* `list(String.t)`, *default:* `nil`) - The BCP-47 language code(s) for terms defined in the glossary.
       All entries are unique. The list contains at least two entries.
       Expected to be an exact match for GlossaryTerm.language_code.
@@ -29,10 +29,12 @@ defmodule GoogleApi.Translate.V3beta1.Model.LanguageCodesSet do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :languageCodes => list(String.t())
-        }
-
-  field(:languageCodes, type: :list)
+    
+      :"languageCodes" => list(String.t),
+    
+  }
+  
+  field(:"languageCodes", type: :list)
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.LanguageCodesSet do

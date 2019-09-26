@@ -24,12 +24,14 @@ defmodule GoogleApi.Translate.V3beta1.Connection do
 
   use GoogleApi.Gax.Connection,
     scopes: [
+    
       # View and manage your data across Google Cloud Platform services
       "https://www.googleapis.com/auth/cloud-platform",
-
+    
       # Translate text from one language to another using Google Translate
-      "https://www.googleapis.com/auth/cloud-translation"
+      "https://www.googleapis.com/auth/cloud-translation",
+    
     ],
-    otp_app: :google_api_translate,
+    otp_app: :"google_api_translate",
     base_url: "https://translation.googleapis.com/"
 end

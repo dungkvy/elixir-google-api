@@ -21,7 +21,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.Operation do
   network API call.
 
   ## Attributes
-
+  
   *   `done` (*type:* `boolean()`, *default:* `nil`) - If the value is `false`, it means the operation is still in progress.
       If `true`, the operation is completed, and either `error` or `response` is
       available.
@@ -46,18 +46,24 @@ defmodule GoogleApi.Translate.V3beta1.Model.Operation do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :done => boolean(),
-          :error => GoogleApi.Translate.V3beta1.Model.Status.t(),
-          :metadata => map(),
-          :name => String.t(),
-          :response => map()
-        }
-
-  field(:done)
-  field(:error, as: GoogleApi.Translate.V3beta1.Model.Status)
-  field(:metadata, type: :map)
-  field(:name)
-  field(:response, type: :map)
+    
+      :"done" => boolean(),
+    
+      :"error" => GoogleApi.Translate.V3beta1.Model.Status.t,
+    
+      :"metadata" => map(),
+    
+      :"name" => String.t,
+    
+      :"response" => map(),
+    
+  }
+  
+  field(:"done")
+  field(:"error", as: GoogleApi.Translate.V3beta1.Model.Status)
+  field(:"metadata", type: :map)
+  field(:"name")
+  field(:"response", type: :map)
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.Operation do

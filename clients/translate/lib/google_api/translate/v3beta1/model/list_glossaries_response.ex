@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.ListGlossariesResponse do
   Response message for ListGlossaries.
 
   ## Attributes
-
+  
   *   `glossaries` (*type:* `list(GoogleApi.Translate.V3beta1.Model.Glossary.t)`, *default:* `nil`) - The list of glossaries for a project.
   *   `nextPageToken` (*type:* `String.t`, *default:* `nil`) - A token to retrieve a page of results. Pass this value in the
       [ListGlossariesRequest.page_token] field in the subsequent call to
@@ -30,12 +30,15 @@ defmodule GoogleApi.Translate.V3beta1.Model.ListGlossariesResponse do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :glossaries => list(GoogleApi.Translate.V3beta1.Model.Glossary.t()),
-          :nextPageToken => String.t()
-        }
-
-  field(:glossaries, as: GoogleApi.Translate.V3beta1.Model.Glossary, type: :list)
-  field(:nextPageToken)
+    
+      :"glossaries" => list(GoogleApi.Translate.V3beta1.Model.Glossary.t),
+    
+      :"nextPageToken" => String.t,
+    
+  }
+  
+  field(:"glossaries", as: GoogleApi.Translate.V3beta1.Model.Glossary, type: :list)
+  field(:"nextPageToken")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.ListGlossariesResponse do

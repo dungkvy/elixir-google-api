@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.ListLocationsResponse do
   The response message for Locations.ListLocations.
 
   ## Attributes
-
+  
   *   `locations` (*type:* `list(GoogleApi.Translate.V3beta1.Model.Location.t)`, *default:* `nil`) - A list of locations that matches the specified filter in the request.
   *   `nextPageToken` (*type:* `String.t`, *default:* `nil`) - The standard List next-page token.
   """
@@ -28,12 +28,15 @@ defmodule GoogleApi.Translate.V3beta1.Model.ListLocationsResponse do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :locations => list(GoogleApi.Translate.V3beta1.Model.Location.t()),
-          :nextPageToken => String.t()
-        }
-
-  field(:locations, as: GoogleApi.Translate.V3beta1.Model.Location, type: :list)
-  field(:nextPageToken)
+    
+      :"locations" => list(GoogleApi.Translate.V3beta1.Model.Location.t),
+    
+      :"nextPageToken" => String.t,
+    
+  }
+  
+  field(:"locations", as: GoogleApi.Translate.V3beta1.Model.Location, type: :list)
+  field(:"nextPageToken")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.ListLocationsResponse do

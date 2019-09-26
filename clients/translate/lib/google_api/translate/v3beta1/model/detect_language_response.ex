@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.DetectLanguageResponse do
   The response message for language detection.
 
   ## Attributes
-
+  
   *   `languages` (*type:* `list(GoogleApi.Translate.V3beta1.Model.DetectedLanguage.t)`, *default:* `nil`) - A list of detected languages sorted by detection confidence in descending
       order. The most probable language first.
   """
@@ -28,10 +28,12 @@ defmodule GoogleApi.Translate.V3beta1.Model.DetectLanguageResponse do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :languages => list(GoogleApi.Translate.V3beta1.Model.DetectedLanguage.t())
-        }
-
-  field(:languages, as: GoogleApi.Translate.V3beta1.Model.DetectedLanguage, type: :list)
+    
+      :"languages" => list(GoogleApi.Translate.V3beta1.Model.DetectedLanguage.t),
+    
+  }
+  
+  field(:"languages", as: GoogleApi.Translate.V3beta1.Model.DetectedLanguage, type: :list)
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.DetectLanguageResponse do

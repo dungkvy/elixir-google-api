@@ -20,7 +20,7 @@ defmodule GoogleApi.Translate.V3beta1.Model.DetectedLanguage do
   The response message for language detection.
 
   ## Attributes
-
+  
   *   `confidence` (*type:* `number()`, *default:* `nil`) - The confidence of the detection result for this language.
   *   `languageCode` (*type:* `String.t`, *default:* `nil`) - The BCP-47 language code of source content in the request, detected
       automatically.
@@ -29,12 +29,15 @@ defmodule GoogleApi.Translate.V3beta1.Model.DetectedLanguage do
   use GoogleApi.Gax.ModelBase
 
   @type t :: %__MODULE__{
-          :confidence => number(),
-          :languageCode => String.t()
-        }
-
-  field(:confidence)
-  field(:languageCode)
+    
+      :"confidence" => number(),
+    
+      :"languageCode" => String.t,
+    
+  }
+  
+  field(:"confidence")
+  field(:"languageCode")
 end
 
 defimpl Poison.Decoder, for: GoogleApi.Translate.V3beta1.Model.DetectedLanguage do
