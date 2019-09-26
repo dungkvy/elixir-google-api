@@ -610,9 +610,9 @@
     "url": "https://tpu.googleapis.com/$discovery/rest?version=v1"
   },
   {
-    "version": "v2",
+    "version": "v3beta1",
     "name": "Translate",
-    "url": "https://translation.googleapis.com/$discovery/rest?version=v2"
+    "url": "https://translation.googleapis.com/$discovery/rest?version=v3beta1"
   },
   {
     "version": "v1",
